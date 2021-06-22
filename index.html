@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="js/game.js"></script>
+	<script src="js/material.js"></script>
+	<script src="js/maths.js"></script>
+	
+	<style>
+		* {margin:0; padding:0;}
+		body {overflow:hidden;}
+		canvas{background:black;}
+	</style>
+	<script>
+		window.addEventListener("load", function(){
+			window.game = new Game();
+			window.game.resize(
+				window.innerWidth,
+				window.innerHeight
+			);
+			loop();
+		});
+		window.addEventListener("resize", function(){
+			window.game.resize(
+				window.innerWidth,
+				window.innerHeight
+			);
+		});
+		
+	</script>
+	
+	<script type="vertext_shader" id="vs_01">
+		attribute vec2 a_position;
+		attribute vec2 a_texCoord;
+		
+		uniform mat3 u_world;
+		uniform mat3 u_object;
+		uniform vec2 u_frame;
+		
+		varying vec2 v_texCoord;
+		void main(){
+			gl_Position = vec4( u_world * u_object * vec3(a_position, 1), 1);
+			v_texCoord = a_texCoord + u_frame;
+		}
+	</script>
+	
+	<script type="fragment_shader" id="fs_01">
+		precision mediump float;
+		uniform sampler2D u_image;
+		varying vec2 v_texCoord;
+		
+		void main(){
+			gl_FragColor = texture2D(u_image, v_texCoord);
+		}
+	</script>
+</head>
+
+<body>
+</body>
+</html>
