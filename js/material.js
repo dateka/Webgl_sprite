@@ -79,6 +79,9 @@ class Sprite{
 		}
 	}
 
+	// Créé un tableau pour rectangle
+	// On définit des valeurs par défaut
+	// Vu que pour dessiner un rectangle, il faut dessiner 2 triangles, on a 6 points
 	static createRectArray(x = 0, y = 0, w = 1, h = 1){
 		return new Float32Array([
 			x, y,
