@@ -1,6 +1,6 @@
 class Point{
 	// Permet d'avoir des valeurs par defaut pour x et y
-	constructor(x=0.0, y=0.0){
+	constructor(x = 0.0, y = 0.0){
 		this.x = x;
 		this.y = y;
 	}
