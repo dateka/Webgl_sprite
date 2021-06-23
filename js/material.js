@@ -120,7 +120,7 @@ class Sprite{
 		// On fait un buffer pour la texture
 		this.tex_buff = gl.createBuffer();
 		gl.bindBuffer(gl.ARRAY_BUFFER, this.tex_buff);
-		gl.bufferData(gl.ARRAY_BUFFER, Sprite.createRectArray(0,0,this.uv_x, this.uv_y), gl.STATIC_DRAW);
+		gl.bufferData(gl.ARRAY_BUFFER, Sprite.createRectArray(0, 0, this.uv_x, this.uv_y), gl.STATIC_DRAW);
 
 		// On doit rendre un rectangle donc on fait notre geometry buffer
 		this.geo_buff = gl.createBuffer();
@@ -142,7 +142,6 @@ class Sprite{
 		gl.useProgram(null);
 		// On défini loaded à true
 		this.isLoaded = true;
-
 	}
 
 	render(position, frames){

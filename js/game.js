@@ -51,7 +51,7 @@ class Game{
 		this.sprite2Frame = new Point();
 	}
 
-	// Permet de redimensionner le canvas à la taille de l'écran
+	// Permet de redimensionner le canvas à la taille du canvas
 	resize(x,y){
 		this.canvasElm.width = x;
 		this.canvasElm.height = y;
@@ -64,14 +64,13 @@ class Game{
 		// On met à l'échelle (on utilise 240 car beaucoup de vieux jeu utilise 240 lignes verticales)
 		// On utilise -2 pour retourner notre image à l'envers. Donc au lieu d'aller entre 1 et -1, il passera de -1 à 1.
 		this.worldSpaceMatrix = new M3x3().transition(-1, 1).scale(2/wRatio,-2/240);
-		// écran :
+		// canvas :
 		// -----|-----
 		//  -1  |  1
 		// -----|-----
 	}
 
 	update(){
-
 		// On vide notre canvas
 		this.gl.viewport(0,0, this.canvasElm.width, this.canvasElm.height);
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT);
